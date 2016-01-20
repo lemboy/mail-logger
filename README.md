@@ -1,15 +1,19 @@
 # MailLogger
 
-Default paths getting you down? Not to worry, this gem is configurable!
-
 ``` ruby
 Mail::Logger.configure do |config|
-  config.processor_class = MailLoggerService
+  config.processor_class = MailLoggerService # or 'MailLoggerService'
   config.processor_method = :call
 end
 ```
 
 (If you're using Rails, this belongs in `config/initializers/mail_logger.rb`)
+
+
+In this case we will have:
+```
+MailLoggerService.new(email_message: email).call
+```
 
 ## Installation
 
