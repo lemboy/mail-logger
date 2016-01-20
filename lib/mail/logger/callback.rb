@@ -1,8 +1,8 @@
 class Mail::Logger::Callback
   def self.delivered_email(email)
-    Mail::Logger.logger.info email.inspect
+    Mail::Logger.logger.call(email)
   end
 end
 
 require 'mail'
-Mail.register_observer(Mail::Logger::Callback)
+ActionMailer::Base.register_observer(Mail::Logger::Callback)

@@ -1,12 +1,11 @@
-require "mail"
-require "logger"
-require "mail/logger/version"
-require "mail/logger/configuration"
-require "mail/logger/logfile"
-require "mail/logger/callback"
+require 'mail'
+require 'logger'
+require 'mail/logger/version'
+require 'mail/logger/configuration'
+require 'mail/logger/log'
+require 'mail/logger/callback'
 
 module Mail::Logger
-
   class << self
     attr_accessor :configuration
   end
@@ -20,6 +19,6 @@ module Mail::Logger
   end
 
   def self.logger
-    @logger ||= Mail::Logger::Logfile.new
+    @logger ||= Mail::Logger::Log.new
   end
 end
